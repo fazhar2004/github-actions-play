@@ -1,2 +1,3 @@
 this is a testfile.txt
 line 2git 
+this is line 3 test both workflows
