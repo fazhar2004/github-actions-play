@@ -1,0 +1,25 @@
+name : newWorkflow
+
+on:
+    workflow_run:
+        workflows: ["CI"]
+        types: 
+            - completed
+    workflow_dispatch:
+
+jobs:
+    newWorkflow1:
+        runs-on: ubuntu-latest
+
+        steps:
+            #checks out repo, so job can access it
+            - uses: actions/checkout@v4
+
+            - name: CI workflow complete confirmation
+              run: 
+                  echo "The workflow CI has completed"
+
+            - name: Greetings
+              run:  |
+                 echo "Hello There ${{ github.actor}} from github your workflow is a ${{job.status}}."
+            
